@@ -5,7 +5,7 @@
 | Spec | S010 |
 | Feature | Conditional Step Execution |
 | Date | 2026-04-24 |
-| Status | Draft |
+| Status | Implemented | Last Updated | 2026-05-10 |
 
 ## Overview
 

@@ -5,7 +5,7 @@
 | Spec | S003 |
 | Feature | Workflow Engine |
 | Date | 2026-04-23 |
-| Status | Draft |
+| Status | Implemented | Last Updated | 2026-05-10 |
 
 ## Overview
 

@@ -5,7 +5,7 @@
 | Spec | S007 |
 | Feature | Built-in Tasks |
 | Date | 2026-04-23 |
-| Status | Draft |
+| Status | Implemented | Last Updated | 2026-05-10 |
 | Project | sir.sh CLI (`/Users/mark/Projects/Sir/cli`) |
 | Tech Stack | PHP 8.2, Laravel Zero, Symfony Process |
 

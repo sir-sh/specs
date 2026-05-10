@@ -5,7 +5,7 @@
 | Spec | S012 |
 | Feature | Nested Property Access in Templates |
 | Date | 2026-04-24 |
-| Status | Draft |
+| Status | Implemented | Last Updated | 2026-05-10 |
 
 ## Overview
 

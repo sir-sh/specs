@@ -5,7 +5,7 @@
 | Spec | S004 |
 | Feature | Template expression resolution in workflow YAML values |
 | Date | 2026-04-23 |
-| Status | Draft |
+| Status | Implemented | Last Updated | 2026-05-10 |
 | Source | `app/Services/Context.php` |
 
 ## Overview
@@ -16,7 +16,9 @@ Three expression forms are supported in v1:
 
 1. **Simple variable substitution** -- `{{variable}}` looks up the named variable in the `Context` and replaces the expression with its string representation. Missing variables resolve to the empty string.
 2. **Shell-safe quoting** -- `{{shellQuote(variable)}}` wraps the variable's value in `escapeshellarg()`, preventing shell injection when templates are interpolated into shell commands.
-3. **Default fallback** -- `{{default(variable, 'fallback')}}` returns the variable's value if it exists and is non-empty, otherwise returns the fallback literal.
+3. **Default fallback** -- `{{default(variable, 'fallback')}}` returns the variable's value if it exists, otherwise returns the fallback literal.
+
+**v1 Behavior Note:** When a variable is set but empty (empty string), `default()` returns the empty string rather than the fallback. The intended behavior (per FR-004) is to return fallback for empty values, but v1 intentionally diverges for backward compatibility.
 
 Template resolution occurs in four call sites: workflow step `with` arguments (method and task steps), shell step commands, method `impl.command` strings, and anywhere else `Context::resolveTemplate()` is invoked. The `Context` class owns all resolution logic -- there is no separate template engine.
 

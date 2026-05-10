@@ -5,7 +5,26 @@
 | Spec | S011 |
 | Feature | Loop Constructs |
 | Date | 2026-04-24 |
-| Status | Draft |
+| Status | Partial | Last Updated | 2026-05-10 |
+
+## Implementation Notes
+
+**Implemented (S011-FR-001 through S011-FR-009, S011-FR-012):**
+- forEach iteration over arrays
+- {{item}} and {{index}} variables
+- as: property for renaming
+- breakOn: and continueOn: flow control
+- saveAs result collection
+- Template resolution in forEach
+
+**Not Yet Implemented:**
+- S011-FR-005: parallel: true (concurrency not implemented)
+- S011-FR-006: maxWorkers: limit (concurrency not implemented)
+- S011-FR-010: Nested loops (child steps under forEach not supported)
+- S011-FR-011: Matrix forEach (multi-key iteration not supported)
+
+**Known Issues:**
+- MAR-375: Loop logic bug being fixed
 | Project | sir.sh CLI (`/Users/mark/Projects/Sir/cli`) |
 | Tech Stack | PHP 8.2, Laravel Zero |
 

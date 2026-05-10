@@ -5,7 +5,22 @@
 | Spec | S014 |
 | Feature | Remote Execution |
 | Date | 2026-04-24 |
-| Status | Draft |
+| Status | Future | Last Updated | 2026-05-10 |
+
+## Implementation Notes
+
+**Not Yet Implemented.** The RemoteExecutor interface contract is defined but no implementations exist.
+
+**Planned:**
+- SSHExecutor, DockerExecutor, KubernetesExecutor, CloudFunctionExecutor
+- WorkflowPackager for bundling
+- CLI --remote flag
+- Secrets management via vault references ({{vault:secret-name}})
+- Streaming output with --follow flag
+- Artifact transfer between steps
+- Resource limits (cpu, memory, timeout)
+
+**Dependencies:** Requires S003 (Workflow Engine), S005 (Pack System), S002 (Config Loading) to be complete first.
 | Project | sir.sh CLI (`/Users/mark/Projects/Sir/cli`) |
 | Tech Stack | PHP 8.2, Laravel Zero |
 

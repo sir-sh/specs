@@ -5,7 +5,23 @@
 | Spec | S015 |
 | Feature | Workflow Scheduling |
 | Date | 2026-04-24 |
-| Status | Draft |
+| Status | Future | Last Updated | 2026-05-10 |
+
+## Implementation Notes
+
+**Not Yet Implemented.** Schedule configuration format is defined but no scheduler daemon exists.
+
+**Planned:**
+- schedules.yml configuration file
+- Cron expression evaluation
+- sir schedules:run daemon
+- Concurrency control (prevent overlapping runs)
+- Retry logic with exponential backoff
+- Notification delivery (email, Slack, PagerDuty)
+- Execution history in schedule_history.json
+- File-watcher event-based triggers
+
+**Dependencies:** Requires S003 (Workflow Engine) to be complete first.
 | Project | sir.sh CLI (`/Users/mark/Projects/Sir/cli`) |
 | Tech Stack | PHP 8.2, Laravel Zero |
 
