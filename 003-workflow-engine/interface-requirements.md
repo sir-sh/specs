@@ -108,3 +108,17 @@ S003-IF-009 [P1] A shell step **MUST** return an associative array with keys:
 - `output` (string) -- concatenated stdout
 - `errorOutput` (string) -- concatenated stderr
 - `success` (bool) -- true if exitCode equals 0
+
+## Approval of MCP workflow requests
+
+- `request_workflow_run` accepts an installed YAML workflow name and optional
+  `values` and `inputs` arrays using the preview tool's input format. It returns
+  a 10-minute request ID and a preview without input values. It executes no
+  steps and writes the request to a private local directory.
+- `sir approve <id>` requires an interactive terminal. It displays the project,
+  source, source hash, steps, resolved method definitions, and inputs, with
+  sensitive values redacted. The user must type `approve` to continue.
+- The CLI revalidates the workflow, project identity, and resolved method
+  definitions after confirmation. It atomically consumes the reviewed request
+  before executing in the configured project. Denied, expired, unavailable, or
+  previously consumed requests cannot execute.
