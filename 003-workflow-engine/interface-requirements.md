@@ -122,3 +122,20 @@ S003-IF-009 [P1] A shell step **MUST** return an associative array with keys:
   definitions after confirmation. It atomically consumes the reviewed request
   before executing in the configured project. Denied, expired, unavailable, or
   previously consumed requests cannot execute.
+
+- `get_workflow_run_status` accepts a required string `requestId` and is
+  read-only. A result includes `requestId`, `state`, `requestedAt`,
+  `expiresAt`, `startedAt`, `finishedAt`, `elapsedSeconds`, and `outcome`.
+  Timestamps and elapsed time use seconds, with timestamps relative to the
+  Unix epoch. Unavailable timestamps and elapsed time are null.
+- States and outcome codes are `pending` and `running` (null), `declined`
+  (`declined`), `expired` (`expired`), `succeeded` (`completed`), and
+  `failed` (`step_failed`, `execution_error`, or `interrupted`). An
+  interrupted run has null finish and elapsed values.
+- A lookup requires the same canonical project path and directory identity.
+  Unknown, cross-project, and out-of-retention IDs return
+  `request_unavailable`. Records are retained for 24 hours from finish or
+  expiry, or from start for interrupted runs with an unknown finish time.
+- Status records are private and separate from execution payloads. State
+  updates are atomic. Input values, subprocess output, and exception text
+  are excluded. Polling does not change local state or trigger execution.
